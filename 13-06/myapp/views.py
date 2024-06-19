@@ -7,4 +7,9 @@ def helloworld(request):
         "Message": "Hello chan"
     }
 
+
+
+
+
+
     return JsonResponse(data)
