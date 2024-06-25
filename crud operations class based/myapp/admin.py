@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Userdetails
+from .models import Userdetails, Person, Department
 # Register your models here.
 class userdetailsAdmin(admin.ModelAdmin):
     list_display = ('id', 'name', 'dob', 'email', 'contact', 'quotes')
@@ -9,3 +9,6 @@ class userdetailsAdmin(admin.ModelAdmin):
     list_editable = ("contact",)
 
 admin.site.register(Userdetails, userdetailsAdmin)
+
+admin.site.register(Person)
+admin.site.register(Department)

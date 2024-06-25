@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from myapp.models import (Userdetails)
+from myapp.models import (Department, Person, Userdetails)
 
 
 
@@ -42,3 +42,21 @@ class UserdetailsmodelSerializer(serializers.ModelSerializer):
         
         else:
             return value
+
+
+
+class PersondetailsmodelSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Person
+        fields = '__all__'
+
+
+
+#nested serializer
+class DepartmentdetailsmodelSerializer(serializers.ModelSerializer):
+    name = serializers.CharField()
+    department = PersondetailsmodelSerializer(many=True, read_only=True)
+    class Meta:
+        model = Department
+        # fields = '__all__'                                               
+        exclude = ['id']
