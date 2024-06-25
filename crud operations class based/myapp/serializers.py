@@ -36,3 +36,9 @@ class UserdetailsmodelSerializer(serializers.ModelSerializer):
         fields = '__all__'
         # exclude = ['']
 
+    def validate_name(self, value):
+        if len(value) < 4:
+            raise serializers.ValidationError(" name should greater than 4 characters")
+        
+        else:
+            return value
