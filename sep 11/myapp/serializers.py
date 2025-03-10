@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import Person
+from .models import *
 
 
 
@@ -9,3 +9,8 @@ class PersonSerializer(serializers.ModelSerializer):
         model = Person
         fields = "__all__"
 
+
+class BookSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Book
+        fields = '__all__'

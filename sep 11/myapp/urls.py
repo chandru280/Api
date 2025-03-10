@@ -1,7 +1,16 @@
-from django.urls import path 
+from django.urls import path, include 
 from myapp import views
 
+from rest_framework.routers import DefaultRouter
+
+
+router = DefaultRouter()
+router.register(r'books', views.BookViewSet) 
+router.register(r'authors', views.BookViewSet2)
+
 urlpatterns = [
+
+    path('', include(router.urls)),
 
     path('person/create/', views.PersonCreateView.as_view(), name='person-create'),
     path('person/list/', views.PersonListView.as_view(), name='person-list'),
